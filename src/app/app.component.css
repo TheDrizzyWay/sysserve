@@ -1,0 +1,32 @@
+.wrapper {
+  height: 100vh;
+  width: auto;
+  margin: 0 auto;
+  max-width: 60rem;
+  position: relative;
+}
+
+.header {
+  background-color: var(--white);
+  padding: 10px 20px;
+}
+
+.header .las {
+  font-size: 2.4rem;
+  margin-top: 4px;
+}
+
+.header-text {
+  padding-left: 20px;
+}
+
+.header-text__main {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.header-text__sub {
+  font-size: 1.2rem;
+  color: #dbd6d6;
+}
