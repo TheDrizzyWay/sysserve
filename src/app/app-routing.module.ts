@@ -9,17 +9,17 @@ const routes: Routes = [
     component: CommentComponent
   },
   {
+    path: 'comment',
+    component: CommentComponent
+  },
+  {
     path: '**',
     component: CommentComponent
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    enableTracing: false,
-    urlUpdateStrategy: 'deferred',
-    relativeLinkResolution: 'legacy'
-  })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
   providers: []
 })

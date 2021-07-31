@@ -7,5 +7,26 @@
     </div>
   </header>
   <router-outlet></router-outlet>
-  <footer class="footer"></footer>
+  <footer class="footer flex-row">
+    <a routerLink="detail" routerLinkActive="router-link-active"  class="nav-link">
+      <i class="las la-info-circle"></i>
+      <p>Detail</p>
+    </a>
+    <a routerLink="quote" routerLinkActive="router-link-active"  class="nav-link">
+      <i class="las la-file-invoice-dollar"></i>
+      <p>Quotation</p>
+    </a>
+    <a routerLink="approve" routerLinkActive="router-link-active"  class="nav-link">
+      <i class="las la-thumbs-up"></i>
+      <p>Approval</p>
+    </a>
+    <a routerLink="comment" routerLinkActive="router-link-active"  class="nav-link">
+      <i class="las la-comment"></i>
+      <p>Comment</p>
+    </a>
+    <a routerLink="more" routerLinkActive="router-link-active"  class="nav-link">
+      <i class="las la-icons"></i>
+      <p>More</p>
+    </a>
+  </footer>
 </div>
