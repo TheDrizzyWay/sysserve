@@ -29,17 +29,41 @@
 
 .comments-message {
   margin: 5px 15px;
+  position: relative;
 }
 
 .message-box {
   flex-basis: 85%;
   border: 2px solid #e8ecf5;
   border-radius: 30px;
-  padding: 10px 25px;
+  padding: 10px 30px;
+  font-family: Roboto, serif;
+  font-size: 1.3rem;
+  resize: none;
 }
 
 .message-box::placeholder {
   color: #e7e7e7;
+}
+
+.message-box:focus {
+  outline: none;
+}
+
+.emoji {
+  position: absolute;
+  bottom: 22%;
+  left: 2%;
+  font-size: 2rem;
+  color: #e7e7e7;
+}
+
+.attach {
+  position: absolute;
+  bottom: 22%;
+  right: 18%;
+  font-size: 2rem;
+  color: #696969;
 }
 
 .send-btn {
