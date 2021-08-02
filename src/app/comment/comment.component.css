@@ -134,11 +134,12 @@
   width: 0;
   border: 12px solid var(--white);
   border-left: 18px solid #7e7e7e;
+  margin-top: 1px;
 }
 
 .audio-player .pause {
-  height: 1.5rem;
-  width: 4rem;
+  height: 2.5rem;
+  width: 3rem;
   cursor: pointer;
   position: relative;
 }
@@ -149,22 +150,29 @@
   left: 0px;
   background: blue;
   content: "";
-  height: 2rem;
+  height: 2.5rem;
   width: 0.7rem;
 }
 
 .audio-player .pause::after {
   position: absolute;
   top: 0;
-  right: 2rem;
+  right: 1rem;
   background: blue;
   content: "";
-  height: 2rem;
+  height: 2.5rem;
   width: 0.7rem;
 }
 
 .audio-player .play:hover {
   transform: scale(1.1);
+}
+
+.audio-player .audio-progress {
+  flex-basis: 75%;
+  background-color: #DCDCDC;
+  height: 5px;
+  align-self: center;
 }
 
 .audio-player .audio-time {

@@ -45,7 +45,8 @@
       <div class="history-received audio-wrapper flex-column">
         <div class="audio-player">
           <div class="controls flex-row">
-            <div class="toggle-play play"></div>
+            <div class="toggle-play play" (click)="play()" #playPause></div>
+            <div class="audio-progress"></div>
             <p class="audio-time">0:32</p>
           </div>
         </div>
@@ -60,8 +61,8 @@
       <i class="las la-paperclip attach cursor-pointer"></i>
       <textarea cols="30" rows="1" class="message-box" placeholder="Type a comment" id="post-comment"></textarea>
       <button class="send-btn">
-        <!-- <i class="las la-microphone"></i> -->
-        <i class="las la-paper-plane"></i>
+        <i class="las la-microphone" *ngIf="!isTyping"></i>
+        <i class="las la-paper-plane" *ngIf="isTyping"></i>
       </button>
     </div>
   </div>
