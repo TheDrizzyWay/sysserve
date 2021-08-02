@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CommentComponent } from './components/comment/comment.component';
+import { CommentComponent } from './comment/comment.component';
 
 
 const routes: Routes = [

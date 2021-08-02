@@ -16,7 +16,7 @@ export class CommentComponent implements OnInit {
   setTextAreaHeight(): void {
     const textArea = document.getElementById('post-comment');
 
-    textArea.setAttribute('style', 'height:' + (textArea.scrollHeight) + 'px;overflow-y:hidden;');
+    textArea.setAttribute('style', 'height:' + (textArea.scrollHeight + 4) + 'px;overflow-y:hidden;');
     textArea.addEventListener('input', () => {
       textArea.style.height = 'auto';
       textArea.style.height = (textArea.scrollHeight) + 'px';
