@@ -7,10 +7,13 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 })
 export class CommentComponent implements OnInit {
   textBox: HTMLTextAreaElement;
+  playing: boolean;
 
   @ViewChild('playPause') playBtn: ElementRef<HTMLDivElement>;
 
-  constructor() { }
+  constructor() { 
+    this.playing = false;
+  }
 
   ngOnInit(): void {
     this.setTextAreaHeight()
@@ -35,9 +38,11 @@ export class CommentComponent implements OnInit {
     if (this.playBtn.nativeElement.classList.contains('play')) {
       this.playBtn.nativeElement.classList.remove('play');
       this.playBtn.nativeElement.classList.add('pause');
+      this.playing = true;
     } else {
       this.playBtn.nativeElement.classList.remove('pause');
       this.playBtn.nativeElement.classList.add('play');
+      this.playing = false;
     }
   }
 

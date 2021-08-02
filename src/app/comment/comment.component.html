@@ -42,17 +42,49 @@
     <div class="history-date">Today</div>
     <div class="history-received-wrapper flex-row">
       <div class="user-img">B</div>
-      <div class="history-received audio-wrapper flex-column">
+      <div class="history-received audio-wrapper flex-column" [ngClass]="{'is-playing': playing}">
         <div class="audio-player">
           <div class="controls flex-row">
             <div class="toggle-play play" (click)="play()" #playPause></div>
-            <div class="audio-progress"></div>
+            <div class="audio-duration">
+              <div class="audio-progress"></div>
+            </div>
             <p class="audio-time">0:32</p>
           </div>
         </div>
         <p class="time">4:56 PM</p>
       </div>
     </div>
+
+    <div class="history-sent audio-wrapper flex-column" [ngClass]="{'is-playing': !playing}">
+      <div class="audio-player">
+        <div class="controls flex-row">
+          <div class="toggle-play play" (click)="play()" #playPause></div>
+          <div class="audio-duration">
+            <div class="audio-progress"></div>
+          </div>
+          <p class="audio-time">0:32</p>
+        </div>
+      </div>
+      <p class="time">4:56 PM</p>
+    </div>
+
+    <div class="history-received-wrapper flex-row">
+      <div class="user-img">D</div>
+      <div class="history-received history-received__file flex-column">
+        <div class="file-wrapper">
+          <div class="file-meta flex-row">
+            <i class="las la-comment"></i>
+            <div class="file-meta__info">
+              <p class="name">Filename.pdf</p>
+              <p class="extension">3.5MB PDF</p>
+            </div>
+          </div>
+        </div>
+        <p class="time">4:58 PM</p>
+      </div>
+    </div>
+
   </div>
 
   <div class="comments">
