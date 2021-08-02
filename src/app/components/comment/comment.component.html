@@ -3,22 +3,46 @@
     <i class="las la-comment"></i>
     <p class="title-text">Comment</p>
   </div>
+
   <div class="history flex-column">
     <div class="history-date">yesterday</div>
     <div class="history-sent flex-column">
       <p class="content">The plumbers have not yet responded to my calls</p>
       <p class="time">3:45 PM</p>
     </div>
+
+    <!-- <div class="history-date">yesterday</div> -->
     <div class="history-sent flex-column">
       <p class="content">Wonder why?</p>
       <p class="time">3:45 PM</p>
     </div>
+
+    <!-- <div class="history-date">yesterday</div> -->
+    <div class="history-received-wrapper flex-row">
+      <div class="user-img">T</div>
+      <div class="history-received flex-column">
+        <p class="user-name">Tracy Peters</p>
+        <p class="content">Why are we even waiting for them? Are they our only option?</p>
+        <p class="time">4:12 PM</p>
+      </div>
+    </div>
+
+    <!-- <div class="history-date">yesterday</div> -->
+    <div class="history-received-wrapper flex-row">
+      <div class="user-img">D</div>
+      <div class="history-received flex-column">
+        <p class="user-name">Donald Pokamoni</p>
+        <p class="content">Let me call them</p>
+        <p class="time">4:56 PM</p>
+      </div>
+    </div>
   </div>
+
   <div class="comments">
     <div class="comments-message flex-row">
       <i class="las la-grin emoji cursor-pointer"></i>
       <i class="las la-paperclip attach cursor-pointer"></i>
-      <textarea cols="30" rows="1" class="message-box" placeholder="Type a comment"></textarea>
+      <textarea cols="30" rows="1" class="message-box" placeholder="Type a comment" id="post-comment"></textarea>
       <button class="send-btn">
         <i class="las la-microphone"></i>
       </button>

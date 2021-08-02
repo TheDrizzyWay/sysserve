@@ -39,11 +39,11 @@
   margin-bottom: 5px;
 }
 
-.history-sent .content {
+.content {
   line-height: 1.5;
 }
 
-.history-sent .time {
+.time {
   align-self: flex-end;
   opacity: 0.7;
   font-size: 1.1rem;
@@ -69,6 +69,39 @@
 .comments-message {
   margin: 5px 15px;
   position: relative;
+}
+
+.user-img {
+  width: 2.4rem;
+  height: 2.4rem;
+  background-color: #236a7c;
+  border-radius: 50%;
+  color: var(--white);
+  text-align: center;
+  font-size: 1.4rem;
+  padding-top: 0.4rem;
+}
+
+.user-name {
+  margin-right: 20px;
+  margin-bottom: 5px;
+}
+
+.history-received-wrapper {
+  margin-top: 10px;
+}
+
+.history-received {
+  margin-left: 10px;
+  margin-bottom: 5px;
+  width: auto;
+  max-width: 72%;
+  background-color: var(--white);
+  padding: 8px 8px 8px 15px;
+  font-size: 1.2rem;
+  border-radius: 15px;
+  border-top-left-radius: 7.5px;
+  border: 1px solid #e8ecf5;
 }
 
 .message-box {
