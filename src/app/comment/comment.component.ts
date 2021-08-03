@@ -8,11 +8,13 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 export class CommentComponent implements OnInit {
   textBox: HTMLTextAreaElement;
   playing: boolean;
+  showAttachments: boolean;
 
   @ViewChild('playPause') playBtn: ElementRef<HTMLDivElement>;
 
   constructor() { 
     this.playing = false;
+    this.showAttachments = false;
   }
 
   ngOnInit(): void {
@@ -33,6 +35,10 @@ export class CommentComponent implements OnInit {
     }, false);
   }
 
+  openAttachments(): void {
+    this.showAttachments = true;
+  }
+
   // TODO separate audio component
   play(): void {
     if (this.playBtn.nativeElement.classList.contains('play')) {
@@ -43,6 +49,13 @@ export class CommentComponent implements OnInit {
       this.playBtn.nativeElement.classList.remove('pause');
       this.playBtn.nativeElement.classList.add('play');
       this.playing = false;
+    }
+  }
+
+  postComment() {
+    if (this.showAttachments) {
+      this.showAttachments = false;
+      return;
     }
   }
 

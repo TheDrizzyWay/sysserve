@@ -74,10 +74,10 @@
       <div class="history-received history-received__file flex-column">
         <div class="file-wrapper">
           <div class="file-meta flex-row">
-            <i class="las la-comment"></i>
+            <i class="las la-file-pdf"></i>
             <div class="file-meta__info">
               <p class="name">Filename.pdf</p>
-              <p class="extension">3.5MB PDF</p>
+              <p class="extension">3.5MB &nbsp;&nbsp;PDF</p>
             </div>
           </div>
         </div>
@@ -90,12 +90,13 @@
   <div class="comments">
     <div class="comments-message flex-row">
       <i class="las la-grin emoji cursor-pointer"></i>
-      <i class="las la-paperclip attach cursor-pointer"></i>
-      <textarea cols="30" rows="1" class="message-box" placeholder="Type a comment" id="post-comment"></textarea>
-      <button class="send-btn">
-        <i class="las la-microphone" *ngIf="!isTyping"></i>
-        <i class="las la-paper-plane" *ngIf="isTyping"></i>
-      </button>
+      <i class="las la-paperclip attach cursor-pointer" (click)="openAttachments()"></i>
+      <textarea cols="30" rows="1" class="message-box" placeholder="Type a comment" id="post-comment" (keyenter)="postComment()"></textarea>
     </div>
   </div>
+  <button class="send-btn" (click)="postComment()" [ngClass]="{'attachments': showAttachments}">
+    <i class="las la-microphone" *ngIf="!isTyping && !showAttachments"></i>
+    <i class="las la-paper-plane" *ngIf="isTyping && !showAttachments"></i>
+    <i class="las la-times" *ngIf="showAttachments"></i>
+  </button>
 </div>
