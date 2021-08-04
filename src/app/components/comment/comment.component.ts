@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-comment',
@@ -9,10 +9,11 @@ export class CommentComponent implements OnInit, AfterViewInit {
   textBox: HTMLTextAreaElement;
   playing: boolean;
   showAttachments: boolean;
+  isPressed = false;
 
   @ViewChild('playPause') playBtn: ElementRef<HTMLDivElement>;
 
-  constructor() { 
+  constructor(private renderer: Renderer2) { 
     this.playing = false;
     this.showAttachments = false;
   }
@@ -51,12 +52,12 @@ export class CommentComponent implements OnInit, AfterViewInit {
   // TODO separate audio component
   play(): void {
     if (this.playBtn.nativeElement.classList.contains('play')) {
-      this.playBtn.nativeElement.classList.remove('play');
-      this.playBtn.nativeElement.classList.add('pause');
+      this.renderer.addClass(this.playBtn.nativeElement, 'pause');
+      this.renderer.removeClass(this.playBtn.nativeElement, 'play');
       this.playing = true;
     } else {
-      this.playBtn.nativeElement.classList.remove('pause');
-      this.playBtn.nativeElement.classList.add('play');
+      this.renderer.removeClass(this.playBtn.nativeElement, 'pause');
+      this.renderer.addClass(this.playBtn.nativeElement, 'play');
       this.playing = false;
     }
   }
@@ -66,6 +67,11 @@ export class CommentComponent implements OnInit, AfterViewInit {
       this.showAttachments = false;
       return;
     }
+  }
+
+  showOthers() {
+    console.log('long pressed');
+    this.isPressed = true;
   }
 
 }

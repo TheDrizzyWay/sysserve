@@ -6,9 +6,11 @@
 
   <div class="history flex-column">
     <div class="history-date">yesterday</div>
-    <div class="history-sent flex-column">
-      <p class="content">The plumbers have not yet responded to my calls</p>
-      <p class="time">3:45 PM</p>
+    <div class="history-wrapper flex-column" [ngClass]="{'pressed': isPressed}">
+      <div class="history-sent flex-column" appLongPress (onLongPress)="showOthers()">
+        <p class="content">The plumbers have not yet responded to my calls</p>
+        <p class="time">3:45 PM</p>
+      </div>
     </div>
 
     <!-- <div class="history-date">yesterday</div> -->

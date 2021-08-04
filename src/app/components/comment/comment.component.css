@@ -22,10 +22,20 @@
 }
 
 .history {
-  padding: 0 20px;
+  padding: 0;
   width: 100%;
   max-height: calc(100% - 85px);
   overflow-y: auto;
+}
+
+.history-wrapper {
+  margin: 0 0 5px;
+  padding: 0 20px;
+}
+
+.history-wrapper.pressed {
+  background-color: #25cfdb;
+  opacity: 0.5;
 }
 
 .history-sent {
@@ -38,7 +48,6 @@
   font-size: 1.3rem;
   border-radius: 15px;
   border-bottom-right-radius: 7.5px;
-  margin-bottom: 5px;
 }
 
 .content {

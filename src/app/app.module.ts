@@ -4,11 +4,13 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { CommentComponent } from './components/comment/comment.component';
+import { LongPressDirective } from './directives/long-press.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CommentComponent
+    CommentComponent,
+    LongPressDirective
   ],
   imports: [
     BrowserModule,
