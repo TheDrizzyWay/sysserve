@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CommentComponent } from './comment/comment.component';
+import { CommentComponent } from './components/comment/comment.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: CommentComponent
+    redirectTo: 'comment',
+    pathMatch: 'full'
   },
   {
     path: 'comment',

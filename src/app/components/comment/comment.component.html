@@ -91,7 +91,7 @@
     <div class="comments-message flex-row">
       <i class="las la-grin emoji cursor-pointer"></i>
       <i class="las la-paperclip attach cursor-pointer" (click)="openAttachments()"></i>
-      <textarea cols="30" rows="1" class="message-box" placeholder="Type a comment" id="post-comment" (keyenter)="postComment()"></textarea>
+      <textarea cols="30" rows="1" class="message-box" placeholder="Type a comment" id="post-comment" (keydown.enter)="handleEnterKey($event)"></textarea>
     </div>
   </div>
   <button class="send-btn" (click)="postComment()" [ngClass]="{'attachments': showAttachments}">
@@ -99,4 +99,18 @@
     <i class="las la-paper-plane" *ngIf="isTyping && !showAttachments"></i>
     <i class="las la-times" *ngIf="showAttachments"></i>
   </button>
+  <div class="attach-options flex-row" *ngIf="showAttachments">
+    <label for="attach-audio" class="attach-audio">
+      <i class="las la-volume-up"></i>
+      <input type="file" id="attach-audio">
+    </label>
+    <label for="attach-image" class="attach-image">
+      <i class="las la-image"></i>
+      <input type="file" id="attach-image">
+    </label>
+    <label for="attach-doc" class="attach-doc">
+      <i class="las la-file-invoice"></i>
+      <input type="file" id="attach-doc">
+    </label>
+  </div>
 </div>

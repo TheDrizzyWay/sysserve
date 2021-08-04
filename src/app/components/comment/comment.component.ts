@@ -1,11 +1,11 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-comment',
   templateUrl: './comment.component.html',
   styleUrls: ['./comment.component.css']
 })
-export class CommentComponent implements OnInit {
+export class CommentComponent implements OnInit, AfterViewInit {
   textBox: HTMLTextAreaElement;
   playing: boolean;
   showAttachments: boolean;
@@ -21,6 +21,10 @@ export class CommentComponent implements OnInit {
     this.setTextAreaHeight()
   }
 
+  ngAfterViewInit() {
+   
+  }
+
   get isTyping(): boolean {
     return this.textBox.value.trim().length > 0;
   }
@@ -28,7 +32,7 @@ export class CommentComponent implements OnInit {
   setTextAreaHeight(): void {
     this.textBox = <HTMLTextAreaElement>document.getElementById('post-comment');
 
-    this.textBox.setAttribute('style', 'height:' + (this.textBox.scrollHeight + 4) + 'px;overflow-y:hidden;');
+    this.textBox.setAttribute('style', 'height:' + (this.textBox.scrollHeight + 1) + 'px;overflow-y:hidden;');
     this.textBox.addEventListener('input', () => {
       this.textBox.style.height = 'auto';
       this.textBox.style.height = (this.textBox.scrollHeight) + 'px';
@@ -37,6 +41,11 @@ export class CommentComponent implements OnInit {
 
   openAttachments(): void {
     this.showAttachments = true;
+  }
+
+  handleEnterKey(event: KeyboardEvent) {
+    event.preventDefault();
+    this.postComment();
   }
 
   // TODO separate audio component
