@@ -5,41 +5,13 @@
   </div>
 
   <div class="history flex-column">
-    <div class="history-date">yesterday</div>
-    <div class="comment-container">
-      <div class="history-wrapper flex-column" [ngClass]="{'pressed': isPressed}">
-        <div class="history-sent flex-column" appLongPress (onLongPress)="showOthers()">
-          <p class="content">The plumbers have not yet responded to my calls</p>
-          <p class="time">3:45 PM</p>
-        </div>
-      </div>
-      <div class="pressed-options" *ngIf="isPressed">
-        <i class="las la-copy"></i>
-        <i class="las la-bullhorn"></i>
-        <i class="las la-share-square"></i>
-      </div>
-    </div>
-    
+    <app-single-comment *ngFor="let comment of allComments" [comment]="comment"></app-single-comment>
 
     <!-- <div class="history-date">yesterday</div> -->
     <div class="history-wrapper flex-column">
       <div class="history-sent flex-column">
         <p class="content">Wonder why?</p>
         <p class="time">3:45 PM</p>
-      </div>
-    </div>
-
-    <!-- <div class="history-date">yesterday</div> -->
-    <div class="history-wrapper flex-column">
-      <div class="history-received-wrapper flex-row">
-        <div class="user-img__url">
-          <img src="https://involveduidevtest-c6v76esbxa-uc.a.run.app/assets/images/mocks/female-comment-3@2x.png" alt="sender" />
-        </div>
-        <div class="history-received flex-column">
-          <p class="user-name">Tracy Peters</p>
-          <p class="content">Why are we even waiting for them? Are they our only option?</p>
-          <p class="time">4:12 PM</p>
-        </div>
       </div>
     </div>
 

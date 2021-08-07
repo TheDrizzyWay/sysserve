@@ -1,29 +1,34 @@
-import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { CommentModel } from 'src/app/models/comment';
+import { CommentsService } from 'src/app/services/comments.service';
 
 @Component({
-  selector: 'app-comment',
-  templateUrl: './comment.component.html',
-  styleUrls: ['./comment.component.css']
+  selector: 'app-comments',
+  templateUrl: './comments.component.html',
+  styleUrls: ['./comments.component.css']
 })
-export class CommentComponent implements OnInit, AfterViewInit {
+export class CommentsComponent implements OnInit {
   textBox: HTMLTextAreaElement;
   playing: boolean;
   showAttachments: boolean;
   isPressed = false;
+  allComments: CommentModel[];
 
   @ViewChild('playPause') playBtn: ElementRef<HTMLDivElement>;
 
-  constructor(private renderer: Renderer2) { 
+  constructor(
+    private renderer: Renderer2,
+    private commentsService: CommentsService
+    ) { 
     this.playing = false;
     this.showAttachments = false;
+    this.allComments = [];
   }
 
   ngOnInit(): void {
-    this.setTextAreaHeight()
-  }
-
-  ngAfterViewInit() {
-   
+    this.setTextAreaHeight();
+    
+    this.commentsService.getAll().subscribe(data => this.allComments = data);
   }
 
   get isTyping(): boolean {

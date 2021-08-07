@@ -3,14 +3,16 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { CommentComponent } from './components/comment/comment.component';
+import { CommentsComponent } from './components/comments/comments.component';
 import { LongPressDirective } from './directives/long-press.directive';
+import { SingleCommentComponent } from './components/single-comment/single-comment.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CommentComponent,
-    LongPressDirective
+    CommentsComponent,
+    LongPressDirective,
+    SingleCommentComponent
   ],
   imports: [
     BrowserModule,

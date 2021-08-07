@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "creator": {
+      "id": 1,
+      "name": "Chris Drizy",
+      "imageUrl": null
+    },
+    "dateCreated": "1628264737000",
+    "commentType": "text",
+    "content": "The plumbers have not yet responded to my calls"
+  },
+  {
+    "id": 2,
+    "creator": {
+      "id": 1,
+      "name": "Chris Drizy",
+      "imageUrl": null
+    },
+    "dateCreated": "1628264739000",
+    "commentType": "text",
+    "content": "Wonder why?"
+  },
+  {
+    "id": 3,
+    "creator": {
+      "id": 2,
+      "name": "Tracy Peters",
+      "imageUrl": "https://involveduidevtest-c6v76esbxa-uc.a.run.app/assets/images/mocks/female-comment-3@2x.png"
+    },
+    "dateCreated": "1628264920000",
+    "commentType": "text",
+    "content": "Why are we even waiting for them? Are they our only option?"
+  }
+]
