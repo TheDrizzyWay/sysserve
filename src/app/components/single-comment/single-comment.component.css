@@ -42,18 +42,6 @@
   font-size: 1.2rem;
 }
 
-.history-sent {
-  width: auto;
-  max-width: 75%;
-  align-self: flex-end;
-  background-color: var(--primary-color);
-  color: var(--white);
-  padding: 8px 8px 8px 15px;
-  font-size: 1.3rem;
-  border-radius: 15px;
-  border-bottom-right-radius: 7.5px;
-}
-
 .history-date {
   background-color: var(--white);
   text-transform: uppercase;
@@ -63,23 +51,6 @@
   border-radius: 5px;
   font-size: 1.1rem;
   width: max-content;
-}
-
-.history-received-wrapper {
-  margin-top: 10px;
-}
-
-.history-received {
-  margin-left: 10px;
-  margin-bottom: 5px;
-  width: auto;
-  max-width: 72%;
-  background-color: var(--white);
-  padding: 8px 8px 8px 15px;
-  font-size: 1.3rem;
-  border-radius: 15px;
-  border-top-left-radius: 7.5px;
-  border: 1px solid #e8ecf5;
 }
 
 .user-img {
@@ -144,4 +115,8 @@
 .file-meta__info .extension {
   font-size: 1.2rem;
   color: #d5d5d5;
+}
+
+.stretch {
+  width: 100%;
 }

@@ -5,9 +5,10 @@ interface Creator {
 }
 
 interface MediaModel {
-  fileName: string;
-  fileSize: string;
-  fileExtension: string;
+  fileName?: string;
+  fileSize?: string;
+  fileExtension?: string;
+  fileDuration?: string;
 }
 
 export interface CommentModel {

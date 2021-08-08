@@ -9,18 +9,13 @@ import { CommentsService } from 'src/app/services/comments.service';
 })
 export class CommentsComponent implements OnInit {
   textBox: HTMLTextAreaElement;
-  playing: boolean;
   showAttachments: boolean;
   isPressed = false;
   allComments: CommentModel[];
 
-  @ViewChild('playPause') playBtn: ElementRef<HTMLDivElement>;
-
   constructor(
-    private renderer: Renderer2,
     private commentsService: CommentsService
-    ) { 
-    this.playing = false;
+  ) { 
     this.showAttachments = false;
     this.allComments = [];
   }
@@ -52,19 +47,6 @@ export class CommentsComponent implements OnInit {
   handleEnterKey(event: KeyboardEvent) {
     event.preventDefault();
     this.postComment();
-  }
-
-  // TODO separate audio component
-  play(): void {
-    if (this.playBtn.nativeElement.classList.contains('play')) {
-      this.renderer.addClass(this.playBtn.nativeElement, 'pause');
-      this.renderer.removeClass(this.playBtn.nativeElement, 'play');
-      this.playing = true;
-    } else {
-      this.renderer.removeClass(this.playBtn.nativeElement, 'pause');
-      this.renderer.addClass(this.playBtn.nativeElement, 'play');
-      this.playing = false;
-    }
   }
 
   postComment() {

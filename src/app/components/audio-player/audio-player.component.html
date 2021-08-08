@@ -1,1 +1,12 @@
-
+<div class="history-received audio-wrapper flex-column" [ngClass]="setPlayerClass()">
+  <div class="audio-player">
+    <div class="controls flex-row">
+      <div class="toggle-play play" (click)="play()" #playPause></div>
+      <div class="audio-duration">
+        <div class="audio-progress"></div>
+      </div>
+      <p class="audio-time">{{ duration | convertTime }}</p>
+    </div>
+  </div>
+  <p class="time">{{ commentTime | date:'shortTime' }}</p>
+</div>

@@ -46,3 +46,32 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+.history-sent {
+  width: auto;
+  max-width: 75%;
+  align-self: flex-end;
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 8px 8px 8px 15px;
+  font-size: 1.3rem;
+  border-radius: 15px;
+  border-bottom-right-radius: 7.5px;
+}
+
+.history-received-wrapper {
+  margin-top: 10px;
+}
+
+.history-received {
+  margin-left: 10px;
+  margin-bottom: 0;
+  width: auto;
+  max-width: 72%;
+  background-color: var(--white);
+  padding: 8px 8px 8px 15px;
+  font-size: 1.3rem;
+  border-radius: 15px;
+  border-top-left-radius: 7.5px;
+  border: 1px solid #e8ecf5;
+}

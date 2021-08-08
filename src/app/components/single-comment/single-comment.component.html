@@ -17,7 +17,7 @@
       </div>
 
       <div class="comment-container" *ngIf="!myComment">
-        <div class="history-wrapper flex-column">
+        <div class="history-wrapper flex-column" [ngClass]="{'pressed': isPressed}">
           <div class="history-received-wrapper flex-row">
             <div *ngIf="comment.creator.imageUrl" class="user-img__url">
               <img [src]="comment.creator.imageUrl" alt="sender" />
@@ -25,12 +25,17 @@
             <div *ngIf="!comment.creator.imageUrl" class="user-img">
               {{ comment.creator.name.charAt(0) }}
             </div>
-            <div class="history-received flex-column">
+            <div class="history-received flex-column" appLongPress (onLongPress)="showOptions()">
               <p class="user-name">{{ comment.creator.name }}</p>
               <p class="content">{{ comment.content }}</p>
               <p class="time">{{ comment.dateCreated | date:'shortTime' }}</p>
             </div>
           </div>
+        </div>
+        <div class="pressed-options" *ngIf="isPressed">
+          <i class="las la-copy"></i>
+          <i class="las la-bullhorn"></i>
+          <i class="las la-share-square"></i>
         </div>
       </div>
     </ng-container>
@@ -84,7 +89,36 @@
   </div>
 
   <div *ngSwitchCase="'audio'">
+    <ng-container>
+      <div class="history-date">yesterday</div>
+      <div class="comment-container" *ngIf="myComment">
+        <div class="history-wrapper flex-column">
+          <app-audio-player class="stretch flex-column"
+            [myComment]="true"
+            [commentTime]="comment.dateCreated"
+            [duration]="comment.file.fileDuration">
+          </app-audio-player>
+        </div>
+      </div>
 
+      <div class="comment-container" *ngIf="!myComment">
+        <div class="history-wrapper flex-column">
+          <div class="history-received-wrapper flex-row">
+            <div *ngIf="comment.creator.imageUrl" class="user-img__url">
+              <img [src]="comment.creator.imageUrl" alt="sender" />
+            </div>
+            <div *ngIf="!comment.creator.imageUrl" class="user-img">
+              {{ comment.creator.name.charAt(0) }}
+            </div>
+            <app-audio-player class="stretch flex-column"
+              [myComment]="false"  
+              [commentTime]="comment.dateCreated" 
+              [duration]="comment.file.fileDuration">
+            </app-audio-player>
+          </div>
+        </div>
+      </div>
+    </ng-container>
   </div>
 
   <div *ngSwitchDefault></div>

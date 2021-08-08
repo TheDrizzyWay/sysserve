@@ -7,6 +7,7 @@ import { CommentsComponent } from './components/comments/comments.component';
 import { LongPressDirective } from './directives/long-press.directive';
 import { SingleCommentComponent } from './components/single-comment/single-comment.component';
 import { AudioPlayerComponent } from './components/audio-player/audio-player.component';
+import { ConvertTimePipe } from './pipes/convert-time.pipe';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { AudioPlayerComponent } from './components/audio-player/audio-player.com
     CommentsComponent,
     LongPressDirective,
     SingleCommentComponent,
-    AudioPlayerComponent
+    AudioPlayerComponent,
+    ConvertTimePipe
   ],
   imports: [
     BrowserModule,
