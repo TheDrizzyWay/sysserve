@@ -9,18 +9,23 @@ import { CommentModel } from 'src/app/models/comment';
 export class SingleCommentComponent implements OnInit {
   @Input() comment: CommentModel;
 
-  isPressed = false;
   myComment: boolean;
+  isPressed: boolean;
 
-  constructor() { }
+  constructor() { 
+    this.isPressed = false;
+  }
 
   ngOnInit(): void {
     this.myComment = this.comment.creator.id == 1;
   }
 
-  showOptions() {
-    console.log('long pressed');
+  showOptions(): void {
     this.isPressed = true;
+  }
+
+  clearPress(): void {
+    this.isPressed = false;
   }
 
 }

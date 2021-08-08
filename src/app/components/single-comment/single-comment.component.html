@@ -10,9 +10,9 @@
           </div>
         </div>
         <div class="pressed-options" *ngIf="isPressed">
-          <i class="las la-copy"></i>
-          <i class="las la-bullhorn"></i>
-          <i class="las la-share-square"></i>
+          <i class="las la-copy" (click)="clearPress()"></i>
+          <i class="las la-bullhorn" (click)="clearPress()"></i>
+          <i class="las la-share-square" (click)="clearPress()"></i>
         </div>
       </div>
 
@@ -33,9 +33,9 @@
           </div>
         </div>
         <div class="pressed-options" *ngIf="isPressed">
-          <i class="las la-copy"></i>
-          <i class="las la-bullhorn"></i>
-          <i class="las la-share-square"></i>
+          <i class="las la-copy" (click)="clearPress()"></i>
+          <i class="las la-bullhorn" (click)="clearPress()"></i>
+          <i class="las la-share-square" (click)="clearPress()"></i>
         </div>
       </div>
     </ng-container>
@@ -45,8 +45,8 @@
     <ng-container>
       <div class="history-date">yesterday</div>
       <div class="comment-container" *ngIf="myComment">
-        <div class="history-wrapper flex-column">
-          <div class="history-sent history-sent__file flex-column">
+        <div class="history-wrapper flex-column" [ngClass]="{'pressed': isPressed}">
+          <div class="history-sent history-sent__file flex-column" appLongPress (onLongPress)="showOptions()">
             <div class="file-wrapper">
               <div class="file-meta flex-row">
                 <i class="las la-file-pdf"></i>
@@ -59,10 +59,15 @@
             <p class="time">{{ comment.dateCreated | date:'shortTime' }}</p>
           </div>
         </div>
+        <div class="pressed-options" *ngIf="isPressed">
+          <i class="las la-copy" (click)="clearPress()"></i>
+          <i class="las la-bullhorn" (click)="clearPress()"></i>
+          <i class="las la-share-square" (click)="clearPress()"></i>
+        </div>
       </div>
 
       <div class="comment-container" *ngIf="!myComment">
-        <div class="history-wrapper flex-column">
+        <div class="history-wrapper flex-column" [ngClass]="{'pressed': isPressed}">
           <div class="history-received-wrapper flex-row">
             <div *ngIf="comment.creator.imageUrl" class="user-img__url">
               <img [src]="comment.creator.imageUrl" alt="sender" />
@@ -70,7 +75,7 @@
             <div *ngIf="!comment.creator.imageUrl" class="user-img">
               {{ comment.creator.name.charAt(0) }}
             </div>
-            <div class="history-received history-received__file flex-column">
+            <div class="history-received history-received__file flex-column" appLongPress (onLongPress)="showOptions()">
               <div class="file-wrapper">
                 <div class="file-meta flex-row">
                   <i class="las la-file-pdf"></i>
@@ -84,6 +89,11 @@
             </div>
           </div>
         </div>
+        <div class="pressed-options" *ngIf="isPressed">
+          <i class="las la-copy" (click)="clearPress()"></i>
+          <i class="las la-bullhorn" (click)="clearPress()"></i>
+          <i class="las la-share-square" (click)="clearPress()"></i>
+        </div>
       </div>
     </ng-container>
   </div>
@@ -92,17 +102,22 @@
     <ng-container>
       <div class="history-date">yesterday</div>
       <div class="comment-container" *ngIf="myComment">
-        <div class="history-wrapper flex-column">
+        <div class="history-wrapper flex-column" appLongPress (onLongPress)="showOptions()" [ngClass]="{'pressed': isPressed}">
           <app-audio-player class="stretch flex-column"
             [myComment]="true"
             [commentTime]="comment.dateCreated"
             [duration]="comment.file.fileDuration">
           </app-audio-player>
         </div>
+        <div class="pressed-options" *ngIf="isPressed">
+          <i class="las la-copy" (click)="clearPress()"></i>
+          <i class="las la-bullhorn" (click)="clearPress()"></i>
+          <i class="las la-share-square" (click)="clearPress()"></i>
+        </div>
       </div>
 
       <div class="comment-container" *ngIf="!myComment">
-        <div class="history-wrapper flex-column">
+        <div class="history-wrapper flex-column" appLongPress (onLongPress)="showOptions()" [ngClass]="{'pressed': isPressed}">
           <div class="history-received-wrapper flex-row">
             <div *ngIf="comment.creator.imageUrl" class="user-img__url">
               <img [src]="comment.creator.imageUrl" alt="sender" />
@@ -116,6 +131,11 @@
               [duration]="comment.file.fileDuration">
             </app-audio-player>
           </div>
+        </div>
+        <div class="pressed-options" *ngIf="isPressed">
+          <i class="las la-copy" (click)="clearPress()"></i>
+          <i class="las la-bullhorn" (click)="clearPress()"></i>
+          <i class="las la-share-square" (click)="clearPress()"></i>
         </div>
       </div>
     </ng-container>
