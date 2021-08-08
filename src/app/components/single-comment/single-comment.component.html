@@ -17,12 +17,13 @@
       </div>
 
       <div class="comment-container" *ngIf="!myComment">
-        <!-- <div class="history-date">yesterday</div> -->
         <div class="history-wrapper flex-column">
           <div class="history-received-wrapper flex-row">
-            <div class="user-img__url">
-              <img *ngIf="comment.creator.imageUrl" [src]="comment.creator.imageUrl" alt="sender" />
-              <p *ngIf="!comment.creator.imageUrl">{{ comment.creator.charAt(0) }}</p>
+            <div *ngIf="comment.creator.imageUrl" class="user-img__url">
+              <img [src]="comment.creator.imageUrl" alt="sender" />
+            </div>
+            <div *ngIf="!comment.creator.imageUrl" class="user-img">
+              {{ comment.creator.name.charAt(0) }}
             </div>
             <div class="history-received flex-column">
               <p class="user-name">{{ comment.creator.name }}</p>
@@ -35,5 +36,56 @@
     </ng-container>
   </div>
 
-  <div *ngSwitchDefault>output2</div>
+  <div *ngSwitchCase="'file'">
+    <ng-container>
+      <div class="history-date">yesterday</div>
+      <div class="comment-container" *ngIf="myComment">
+        <div class="history-wrapper flex-column">
+          <div class="history-sent history-sent__file flex-column">
+            <div class="file-wrapper">
+              <div class="file-meta flex-row">
+                <i class="las la-file-pdf"></i>
+                <div class="file-meta__info">
+                  <p class="name">{{ comment.file.fileName }}</p>
+                  <p class="extension">{{ comment.file.fileSize }} &nbsp;&nbsp;{{ comment.file.fileExtension }}</p>
+                </div>
+              </div>
+            </div>
+            <p class="time">{{ comment.dateCreated | date:'shortTime' }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="comment-container" *ngIf="!myComment">
+        <div class="history-wrapper flex-column">
+          <div class="history-received-wrapper flex-row">
+            <div *ngIf="comment.creator.imageUrl" class="user-img__url">
+              <img [src]="comment.creator.imageUrl" alt="sender" />
+            </div>
+            <div *ngIf="!comment.creator.imageUrl" class="user-img">
+              {{ comment.creator.name.charAt(0) }}
+            </div>
+            <div class="history-received history-received__file flex-column">
+              <div class="file-wrapper">
+                <div class="file-meta flex-row">
+                  <i class="las la-file-pdf"></i>
+                  <div class="file-meta__info">
+                    <p class="name">{{ comment.file.fileName }}</p>
+                    <p class="extension">{{ comment.file.fileSize }} &nbsp;&nbsp;{{ comment.file.fileExtension }}</p>
+                  </div>
+                </div>
+              </div>
+              <p class="time">{{ comment.dateCreated | date:'shortTime' }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <div *ngSwitchCase="'audio'">
+
+  </div>
+
+  <div *ngSwitchDefault></div>
 </div>

@@ -14,7 +14,7 @@
     "id": 2,
     "creator": {
       "id": 1,
-      "name": "Chris Drizy",
+      "name": "Chris Drizzy",
       "imageUrl": null
     },
     "dateCreated": "1628264739000",
@@ -31,5 +31,48 @@
     "dateCreated": "1628264920000",
     "commentType": "text",
     "content": "Why are we even waiting for them? Are they our only option?"
+  },
+  {
+    "id": 4,
+    "creator": {
+      "id": 3,
+      "name": "Donald Pokamoni",
+      "imageUrl": null
+    },
+    "dateCreated": "1628265620000",
+    "commentType": "text",
+    "content": "Let me call them"
+  },
+  {
+    "id": 7,
+    "creator": {
+      "id": 3,
+      "name": "Donald Pokamoni",
+      "imageUrl": null
+    },
+    "dateCreated": "1628265620000",
+    "commentType": "file",
+    "content": "",
+    "file": {
+      "fileName": "Filename.pdf",
+      "fileSize": "3.5 MB",
+      "fileExtension": "PDF"
+    }
+  },
+  {
+    "id": 8,
+    "creator": {
+      "id": 1,
+      "name": "Chris Drizzy",
+      "imageUrl": null
+    },
+    "dateCreated": "1628265620000",
+    "commentType": "file",
+    "content": "",
+    "file": {
+      "fileName": "Filename.pdf",
+      "fileSize": "3.5 MB",
+      "fileExtension": "PDF"
+    }
   }
 ]

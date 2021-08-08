@@ -1,0 +1,147 @@
+.comment-container {
+  position: relative;
+}
+
+.history-wrapper {
+  margin: 0 0 5px;
+  padding: 0 20px;
+}
+
+.history-wrapper.pressed {
+  background-color: #25cfdb;
+  opacity: 0.5;
+}
+
+.pressed-options {
+  position: absolute;
+  bottom: -10px;
+  right: 10px;
+  background-color: var(--white);
+  border-radius: 5px;
+  padding: 5px 7.5px;
+  z-index: 10;
+  font-size: 1.5rem;
+}
+
+.pressed-options .las {
+  margin: 0 7.5px;
+  cursor: pointer;
+}
+
+.pressed-options .las:hover {
+  color: #1a79f9;
+}
+
+.content {
+  line-height: 1.5;
+}
+
+.time {
+  align-self: flex-end;
+  opacity: 0.7;
+  font-size: 1.2rem;
+}
+
+.history-sent {
+  width: auto;
+  max-width: 75%;
+  align-self: flex-end;
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 8px 8px 8px 15px;
+  font-size: 1.3rem;
+  border-radius: 15px;
+  border-bottom-right-radius: 7.5px;
+}
+
+.history-date {
+  background-color: var(--white);
+  text-transform: uppercase;
+  padding: 2px 5px;
+  margin: 10px auto;
+  border: 1px solid #e8ecf5;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  width: max-content;
+}
+
+.history-received-wrapper {
+  margin-top: 10px;
+}
+
+.history-received {
+  margin-left: 10px;
+  margin-bottom: 5px;
+  width: auto;
+  max-width: 72%;
+  background-color: var(--white);
+  padding: 8px 8px 8px 15px;
+  font-size: 1.3rem;
+  border-radius: 15px;
+  border-top-left-radius: 7.5px;
+  border: 1px solid #e8ecf5;
+}
+
+.user-img {
+  min-width: 2.4rem;
+  height: 2.4rem;
+  background-color: #236a7c;
+  border-radius: 50%;
+  color: var(--white);
+  text-align: center;
+  font-size: 1.4rem;
+  padding-top: 0.4rem;
+}
+
+.user-img__url > img {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.user-name {
+  margin-right: 20px;
+  margin-bottom: 5px;
+}
+
+.history-sent__file {
+  width: calc(100% - 34px);
+  padding: 8px 15px 8px 8px;
+  max-width: unset;
+}
+
+.history-received__file {
+  width: 100%;
+  padding: 8px 15px 8px 8px;
+  max-width: unset;
+}
+
+.file-wrapper {
+  background-color: #F0F0F0;
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+}
+
+.la-file-pdf {
+  font-size: 4rem;
+  color: red;
+  align-self: stretch;
+}
+
+.file-meta__info {
+  margin-left: 10px;
+  color: var(--black);
+}
+
+.file-meta__info .name {
+  margin: 3px 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.file-meta__info .extension {
+  font-size: 1.2rem;
+  color: #d5d5d5;
+}

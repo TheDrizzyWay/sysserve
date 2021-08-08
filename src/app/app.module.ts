@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { LongPressDirective } from './directives/long-press.directive';
 import { SingleCommentComponent } from './components/single-comment/single-comment.component';
+import { AudioPlayerComponent } from './components/audio-player/audio-player.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CommentsComponent,
     LongPressDirective,
-    SingleCommentComponent
+    SingleCommentComponent,
+    AudioPlayerComponent
   ],
   imports: [
     BrowserModule,
