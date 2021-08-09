@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { CommentModel } from 'src/app/models/comment';
 import { CommentsService } from 'src/app/services/comments.service';
 import { checkSameDay } from 'src/app/utils/same-date';
+import { SingleCommentComponent } from '../single-comment/single-comment.component';
 
 @Component({
   selector: 'app-comments',
@@ -12,8 +13,9 @@ export class CommentsComponent implements OnInit {
   textBox: HTMLTextAreaElement;
   target: HTMLDivElement;
   showAttachments: boolean;
-  isPressed = false;
   allComments: CommentModel[];
+
+  @ViewChildren('commentsList') commentsList: QueryList<SingleCommentComponent>;
 
   constructor(private commentsService: CommentsService) { 
     this.showAttachments = false;
@@ -26,8 +28,12 @@ export class CommentsComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.target = document.querySelector('.last');
+    this.target = <HTMLDivElement>document.querySelector('.last');
     this.target.scrollIntoView();
+    this.commentsList.changes.subscribe(() => {
+      this.target = <HTMLDivElement>document.querySelector('.last');
+      this.target.scrollIntoView();
+    });
   }
 
   get isTyping(): boolean {
@@ -73,7 +79,7 @@ export class CommentsComponent implements OnInit {
 
     this.allComments.push(newComment);
     this.textBox.value = '';
-    this.target.scrollIntoView();
+    this.textBox.focus();
   }
 
   showDate(index: number): boolean {
