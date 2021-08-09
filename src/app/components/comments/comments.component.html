@@ -5,7 +5,12 @@
   </div>
 
   <div class="history flex-column">
-    <app-single-comment *ngFor="let comment of allComments" [comment]="comment"></app-single-comment>
+    <div *ngIf="allComments.length">
+      <app-single-comment *ngFor="let comment of allComments; let i = index"
+        [comment]="comment" 
+        [showDate]="showDate(i)">
+      </app-single-comment>
+    </div>
   </div>
 
   <div class="comments">

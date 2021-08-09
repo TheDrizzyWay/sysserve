@@ -1,7 +1,7 @@
 <div [ngSwitch]="comment.commentType">
   <div *ngSwitchCase="'text'">
     <ng-container>
-      <div class="history-date">yesterday</div>
+      <div class="history-date" *ngIf="showDate">{{ getDateString(comment.dateCreated) }}</div>
       <div class="comment-container" *ngIf="myComment">
         <div class="history-wrapper flex-column" [ngClass]="{'pressed': isPressed}">
           <div class="history-sent flex-column" appLongPress (onLongPress)="showOptions()">
@@ -43,7 +43,7 @@
 
   <div *ngSwitchCase="'file'">
     <ng-container>
-      <div class="history-date">yesterday</div>
+      <div class="history-date" *ngIf="showDate">{{ getDateString(comment.dateCreated) }}</div>
       <div class="comment-container" *ngIf="myComment">
         <div class="history-wrapper flex-column" [ngClass]="{'pressed': isPressed}">
           <div class="history-sent history-sent__file flex-column" appLongPress (onLongPress)="showOptions()">
@@ -100,7 +100,7 @@
 
   <div *ngSwitchCase="'audio'">
     <ng-container>
-      <div class="history-date">yesterday</div>
+      <div class="history-date" *ngIf="showDate">{{ getDateString(comment.dateCreated) }}</div>
       <div class="comment-container" *ngIf="myComment">
         <div class="history-wrapper flex-column" appLongPress (onLongPress)="showOptions()" [ngClass]="{'pressed': isPressed}">
           <app-audio-player class="stretch flex-column"

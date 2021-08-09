@@ -1,6 +1,7 @@
-import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { CommentModel } from 'src/app/models/comment';
 import { CommentsService } from 'src/app/services/comments.service';
+import { checkSameDay } from 'src/app/utils/same-date';
 
 @Component({
   selector: 'app-comments',
@@ -56,9 +57,18 @@ export class CommentsComponent implements OnInit {
     }
   }
 
-  showOthers() {
-    console.log('long pressed');
-    this.isPressed = true;
+  showDate(index: number): boolean {
+    const currentDate = Number(this.allComments[index].dateCreated);
+    const previousComment = this.allComments[index - 1];
+
+    if (!previousComment) {
+      return true;
+    }
+
+    const previousDate = Number(previousComment.dateCreated);
+    return !checkSameDay(new Date(currentDate), new Date(previousDate));
   }
+
+  
 
 }
