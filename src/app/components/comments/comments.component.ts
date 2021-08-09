@@ -1,4 +1,4 @@
-import { Component, OnInit, } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommentModel } from 'src/app/models/comment';
 import { CommentsService } from 'src/app/services/comments.service';
 import { checkSameDay } from 'src/app/utils/same-date';
@@ -10,21 +10,26 @@ import { checkSameDay } from 'src/app/utils/same-date';
 })
 export class CommentsComponent implements OnInit {
   textBox: HTMLTextAreaElement;
+  targetWrapper: HTMLDivElement;
+  target: HTMLDivElement;
   showAttachments: boolean;
   isPressed = false;
   allComments: CommentModel[];
 
-  constructor(
-    private commentsService: CommentsService
-  ) { 
+  constructor(private commentsService: CommentsService) { 
     this.showAttachments = false;
     this.allComments = [];
   }
 
   ngOnInit(): void {
     this.setTextAreaHeight();
-    
     this.commentsService.getAll().subscribe(data => this.allComments = data);
+  }
+
+  ngAfterViewInit() {
+    // this.target = <HTMLDivElement>document.getElementById('target');
+    this.target = document.querySelector('.last');
+    this.target.scrollIntoView();
   }
 
   get isTyping(): boolean {
@@ -55,6 +60,22 @@ export class CommentsComponent implements OnInit {
       this.showAttachments = false;
       return;
     }
+
+    const newComment = {
+      id: this.allComments[this.allComments.length - 1].id + 1,
+      creator: {
+        id: 1,
+        name: 'Chris Drizzy',
+        imageUrl: null
+      },
+      dateCreated: (Date.now() * 1000).toString(),
+      commentType: "text",
+      content: "The plumbers have not yet responded to my calls"
+    };
+
+    console.log('pushed');
+    this.allComments.push(newComment);
+    this.target.scrollIntoView();
   }
 
   showDate(index: number): boolean {
@@ -68,7 +89,5 @@ export class CommentsComponent implements OnInit {
     const previousDate = Number(previousComment.dateCreated);
     return !checkSameDay(new Date(currentDate), new Date(previousDate));
   }
-
-  
 
 }

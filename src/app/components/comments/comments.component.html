@@ -6,7 +6,8 @@
 
   <div class="history flex-column">
     <div *ngIf="allComments.length">
-      <app-single-comment *ngFor="let comment of allComments; let i = index"
+      <app-single-comment *ngFor="let comment of allComments; let i = index; let last = last"
+        [ngClass]="{last: last}"
         [comment]="comment" 
         [showDate]="showDate(i)">
       </app-single-comment>
