@@ -10,7 +10,6 @@ import { checkSameDay } from 'src/app/utils/same-date';
 })
 export class CommentsComponent implements OnInit {
   textBox: HTMLTextAreaElement;
-  targetWrapper: HTMLDivElement;
   target: HTMLDivElement;
   showAttachments: boolean;
   isPressed = false;
@@ -27,7 +26,6 @@ export class CommentsComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    // this.target = <HTMLDivElement>document.getElementById('target');
     this.target = document.querySelector('.last');
     this.target.scrollIntoView();
   }
@@ -68,13 +66,13 @@ export class CommentsComponent implements OnInit {
         name: 'Chris Drizzy',
         imageUrl: null
       },
-      dateCreated: (Date.now() * 1000).toString(),
+      dateCreated: (Date.now()).toString(),
       commentType: "text",
-      content: "The plumbers have not yet responded to my calls"
+      content: this.textBox.value.trim()
     };
 
-    console.log('pushed');
     this.allComments.push(newComment);
+    this.textBox.value = '';
     this.target.scrollIntoView();
   }
 
