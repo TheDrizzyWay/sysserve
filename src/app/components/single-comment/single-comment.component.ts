@@ -40,6 +40,11 @@ export class SingleCommentComponent implements OnInit {
       return 'TODAY';
     }
 
+    const yesterday = new Date(today.setDate(today.getDate() - 1));
+    if (checkSameDay(commentDate, yesterday)) {
+      return 'YESTERDAY';
+    }
+
     return `${monthsList[commentDate.getMonth()]}, ${commentDate.getDate()}`;
   }
 
